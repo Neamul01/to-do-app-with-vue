@@ -1,7 +1,8 @@
 <template>
     <ul>
-        @ts-ignore
+        <!-- @ts-ignore -->
         <ToDo v-for="item, index in todo" :key="index" :item="item" />
+        <button class="border-2 p-1 px-3" @click="removelist">Empty List</button>
     </ul>
 </template>
 
@@ -16,6 +17,11 @@ export default {
         todo: {
             type: Array,
             default: () => []
+        }
+    },
+    methods: {
+        removelist() {
+            this.$emit('removelist')
         }
     }
 }
