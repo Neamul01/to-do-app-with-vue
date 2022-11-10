@@ -1,5 +1,7 @@
 <template>
-    <li>{{ item }}</li>
+    <li>{{ item }}
+        <button class="border-2 p-1 px-3" @click="removeThisTodo">Remove</button>
+    </li>
 </template>
 
 <script lang="ts">
@@ -7,7 +9,12 @@ export default {
     props: {
         item: {
             type: String,
-            default: 'hello'
+            default: ' '
+        }
+    },
+    methods: {
+        removeThisTodo() {
+            this.$emit('removeThisTodo', this.item)
         }
     }
 }
